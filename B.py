@@ -7,19 +7,31 @@ k = 17
 
 # two pointers
 
-r = 0
-sum = 0
-cnt = 0
-for i in range(n):
-    while r < n and sum < k:
-        sum += numbers[r]
-        r += 1
-    if sum >= k:
-        if sum == k:
-            cnt += 1
-        sum -= numbers[i]
-print(cnt)
+# r = 0
+# sum = 0
+# cnt = 0
+# for i in range(n):
+#     while r < n and sum < k:
+#         sum += numbers[r]
+#         r += 1
+#     if sum >= k:
+#         if sum == k:
+#             cnt += 1
+#         sum -= numbers[i]
+# print(cnt)
 
+# refix dictionary
+
+d = dict()
+d[0] = 1
+nowsum = 0
+prevsum = 0
+cnt = 0
+for num in numbers:
+    nowsum += num
+    cnt += d.get(nowsum - k, 0)
+    d[nowsum] = 1
+print(cnt)    
 # prefix sum 
 
 # def makeprefix(nums):
